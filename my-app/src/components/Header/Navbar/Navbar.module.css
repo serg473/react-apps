@@ -1,0 +1,16 @@
+.Navbar{
+    grid-area: n;
+}
+.list{
+    display: flex;
+    list-style: none;
+}
+.list > li{
+    margin-right: 30px;
+}
+.list > li > a{
+    font-family: Tahoma,sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    color:#ffffff;
+}

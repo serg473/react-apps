@@ -1,0 +1,12 @@
+.dialogs_item{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.user{
+    border-right: 1px solid black;
+}
+
+.message{
+    margin-left: 30px;
+}
