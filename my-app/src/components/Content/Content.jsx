@@ -6,13 +6,11 @@ import News from "./News/News";
 import Settings from "./Settings/Settings";
 import {Route, Routes} from "react-router-dom";
 
-
-
-const Content = () =>{
+const Content = (props) =>{
     return(
         <main className={s.content}>
             <Routes>
-                <Route path='/dialogs' element={<Dialogs/>}/>
+                <Route path='/dialogs/*' element={<Dialogs/>}/>
                 <Route path='/music' element={<Music/>}/>
                 <Route path='/news' element={<News/>}/>
                 <Route path='/settings' element={<Settings/>}/>

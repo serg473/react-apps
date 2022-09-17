@@ -4,6 +4,10 @@
     align-items: center;
     background-color: #da463a;
     padding: 20px 20px 20px 20px;
+    max-height: 135px;
+}
+.logo{
+    margin-right: 40px;
 }
 .logo img{
     width: 120px;
