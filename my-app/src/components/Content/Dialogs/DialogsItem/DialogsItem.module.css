@@ -1,7 +1,8 @@
 .dialogs_item{
     display: flex;
+    align-items: center;
+    margin-bottom: 30px;
 }
-
 .user{
     border-right: 1px solid black;
 }
@@ -13,7 +14,15 @@
     font-family: Tahoma,sans-serif;
     font-size: 16px;
     font-weight: 500;
-    margin-bottom: 10px;
+}
+.message_item a{
+    text-decoration: none;
+    font-family: Tahoma,sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    display: block;
+    margin-bottom: 5px;
 }
 .message_item p{
     margin:0;
@@ -23,4 +32,10 @@
     font-size: 16px;
     font-weight: 500;
     margin-right: 20px;
+    margin-bottom: 10px;
+}
+.name img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }

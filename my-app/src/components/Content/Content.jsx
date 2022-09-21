@@ -10,7 +10,7 @@ const Content = (props) =>{
     return(
         <main className={s.content}>
             <Routes>
-                <Route path='/dialogs/*' element={<Dialogs/>}/>
+                <Route path='/dialogs/*' element={<Dialogs dataContent = {props.dialog}/>}/>
                 <Route path='/music' element={<Music/>}/>
                 <Route path='/news' element={<News/>}/>
                 <Route path='/settings' element={<Settings/>}/>
