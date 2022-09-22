@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+.item{
+    width: 440px;
+    margin-bottom: 30px;
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.1), -2px 4px 5px rgba(0,0,0,0.1);
+}
+.item a{
+    display: block;
+    text-decoration: none;
+}
+.news_img img{
+    width: 440px;
+    height: 208px;
+}
+.news_title{
+    padding: 30px 18px;
+}
+.news_title h3{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    margin:0;
+}
+.date_tag{
+    padding: 0 18px 30px;
+    display: flex;
+    justify-content: space-between;
+}

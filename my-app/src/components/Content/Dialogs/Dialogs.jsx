@@ -4,10 +4,10 @@ import App from "./DialogsItem/DialogsItem";
 import DialogsItem from "./DialogsItem/DialogsItem";
 
 const Dialogs = (props) => {
-    let dataItem = props.dataContent;
+    let dataItem = props.state.profileData.map(el => <DialogsItem id = {el.id} name = {el.name} src = {el.src} message={el.message}/>);
     return (
         <div className={s.dialogs}>
-            {dataItem.map(el => <DialogsItem id = {el.id} name = {el.name} src = {el.src} message={el.message}/>)}
+            {dataItem}
         </div>
     )
 }

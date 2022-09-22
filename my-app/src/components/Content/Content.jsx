@@ -10,9 +10,9 @@ const Content = (props) =>{
     return(
         <main className={s.content}>
             <Routes>
-                <Route path='/dialogs/*' element={<Dialogs dataContent = {props.dialog}/>}/>
+                <Route path='/dialogs/*' element={<Dialogs  state = {props.state.profile}/>}/>
                 <Route path='/music' element={<Music/>}/>
-                <Route path='/news' element={<News/>}/>
+                <Route path='/news/*' element={<News state = {props.state.news} />}/>
                 <Route path='/settings' element={<Settings/>}/>
             </Routes>
         </main>
