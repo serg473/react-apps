@@ -3,13 +3,16 @@ import Header from "./components/Header/Header";
 import Content from "./components/Content/Content";
 import DialogsItem from "./components/Content/Dialogs/DialogsItem/DialogsItem";
 import React from "react";
+import Friends from "./components/Friends/Friends";
 
 const App = (props) => {
-    console.log(props);
     return (
         <div className={s.wrapper}>
             <Header/>
-            <Content state = {props.state}/>
+            <div className={s.wrapper_block}>
+                <Friends stateFriends={props.state}/>
+                <Content  state = {props.state}/>
+            </div>
         </div>
     )
 }

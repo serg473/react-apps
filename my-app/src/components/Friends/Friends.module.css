@@ -1,0 +1,14 @@
+.friends{
+    grid-area: f;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+}
+.title{
+    font-family: 'Montserrat',sans-serif;
+}
+.friends_aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
