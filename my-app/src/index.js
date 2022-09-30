@@ -4,15 +4,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import state from "./Redux/state";
+import {addPost} from "./Redux/state";
 import DialogsItem from "./components/Content/Dialogs/DialogsItem/DialogsItem";
 
-
-
+addPost('Hey,Sergey!')
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <App state = {state}/>
+            <App addPost = {addPost} state = {state}/>
         </BrowserRouter>
     </React.StrictMode>
 );

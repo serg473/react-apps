@@ -11,7 +11,7 @@ const App = (props) => {
             <Header/>
             <div className={s.wrapper_block}>
                 <Friends stateFriends={props.state}/>
-                <Content  state = {props.state}/>
+                <Content addPost = {props.addPost} state = {props.state}/>
             </div>
         </div>
     )

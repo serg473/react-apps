@@ -32,12 +32,13 @@ let state = {
     }
 }
 
-let addPost = (postMessage) => {
+export let addPost = (postMessage) => {
+    debugger;
     let newPost = {
         id: 8,
-        name:'Petr',
+        name:'Semen',
         src: 'https://www.w3schools.com/howto/img_avatar.png',
-        message: postMessage,
+        message: postMessage
     }
     state.profile.profileData.push(newPost);
 }

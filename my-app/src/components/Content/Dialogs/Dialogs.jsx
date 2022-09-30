@@ -4,10 +4,10 @@ import App from "./DialogsItem/DialogsItem";
 import DialogsItem from "./DialogsItem/DialogsItem";
 
 const Dialogs = (props) => {
-    let newPostElement = React.createRef()
+    let newPostElement = React.createRef();
     let addPost = () => {
         let text = newPostElement.current.value;
-        alert(text);
+        props.addPost(text);
     }
     let dataItem = props.state.profileData.map(el => <DialogsItem id = {el.id} name = {el.name} src = {el.src} message={el.message}/>);
     return (
