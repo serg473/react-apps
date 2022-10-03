@@ -8,6 +8,7 @@ const Dialogs = (props) => {
     let addPost = () => {
         let text = newPostElement.current.value;
         props.addPost(text);
+        newPostElement.current.value = "";
     }
     let dataItem = props.state.profileData.map(el => <DialogsItem id = {el.id} name = {el.name} src = {el.src} message={el.message}/>);
     return (
