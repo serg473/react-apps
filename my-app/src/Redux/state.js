@@ -1,5 +1,7 @@
 import {rerenderEntireTree} from "../render";
 
+
+
 let state = {
     profile: {
         profileData: [
@@ -45,7 +47,8 @@ let state = {
                 src: 'https://www.w3schools.com/howto/img_avatar.png',
                 message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
             },
-        ]
+        ],
+        newPostText : ''
     },
     news: {
         newsData: [
@@ -91,18 +94,19 @@ let state = {
         ]
     }
 }
-
-export let addPost = (postMessage) => {
+window.state = state;
+export let addPost = () => {
     let newPost = {
         id: 8,
         name: 'Semen',
         src: 'https://www.w3schools.com/howto/img_avatar.png',
-        message: postMessage
+        message: state.profile.newPostText
     }
     state.profile.profileData.push(newPost);
+    state.profile.newPostText = "";
     rerenderEntireTree(state);//вызов функции, в качестве параметра в которой, используется актуальный state
 }
-let addNews = (postNews) => {
+export let addNews = (postNews) => {
     let newsPost = {
         id: 5,
         src: 'https://i.ytimg.com/vi/ie53jQ2uobc/maxresdefault.jpg',
@@ -110,6 +114,13 @@ let addNews = (postNews) => {
         datePublish: '13.03.2022',
         tag: 'Общество'
     }
+    state.news.newsData.push(newsPost);
+    rerenderEntireTree(state);
+}
+
+export let updateText = (myText) =>{
+    state.profile.newPostText = myText;
+    rerenderEntireTree(state);
 }
 
 export default state;

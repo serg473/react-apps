@@ -2,13 +2,16 @@ import React from "react";
 import s from './Dialogs.module.css'
 import App from "./DialogsItem/DialogsItem";
 import DialogsItem from "./DialogsItem/DialogsItem";
+import {updateStateProfile, updateText} from "../../../Redux/state";
 
 const Dialogs = (props) => {
     let newPostElement = React.createRef();
     let addPost = () => {
-        let text = newPostElement.current.value;
-        props.addPost(text);
-        newPostElement.current.value = "";
+        props.addPost();
+    }
+    let onUpdate = () => {
+        let value = newPostElement.current.value;
+        props.updateText(value);
     }
     let dataItem = props.state.profileData.map(el => <DialogsItem id = {el.id} name = {el.name} src = {el.src} message={el.message}/>);
     return (
@@ -17,7 +20,7 @@ const Dialogs = (props) => {
             <div>
                 <button onClick={addPost}>Add Post</button>
                 <div>
-                    <textarea ref={newPostElement} name="" id="new-post" cols="30" rows="10"></textarea>
+                    <textarea onChange={onUpdate} ref={newPostElement} value={props.newPostText}/>
                 </div>
             </div>
         </div>
