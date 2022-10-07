@@ -1,6 +1,6 @@
-import {rerenderEntireTree} from "../render";
-
-
+let rerenderEntireTree = () => {
+    console.log('State was changed!');
+}
 
 let state = {
     profile: {
@@ -48,7 +48,7 @@ let state = {
                 message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
             },
         ],
-        newPostText : ''
+        newPostText : 'Мой текст'
     },
     news: {
         newsData: [
@@ -81,6 +81,7 @@ let state = {
                 tag: 'Общество'
             }
         ],
+        newsTextData: ""
     },
     friends: {
         friendsData: [
@@ -106,21 +107,29 @@ export let addPost = () => {
     state.profile.newPostText = "";
     rerenderEntireTree(state);//вызов функции, в качестве параметра в которой, используется актуальный state
 }
-export let addNews = (postNews) => {
+export let addNews = () => {
     let newsPost = {
         id: 5,
         src: 'https://i.ytimg.com/vi/ie53jQ2uobc/maxresdefault.jpg',
-        title: postNews,
+        title: state.news.newsTextData,
         datePublish: '13.03.2022',
         tag: 'Общество'
     }
     state.news.newsData.push(newsPost);
-    rerenderEntireTree(state);
+    state.news.newsTextData = "";
+    rerenderEntireTree();
 }
 
-export let updateText = (myText) =>{
+//Focus textarea
+export const updateText = (myText) =>{
     state.profile.newPostText = myText;
     rerenderEntireTree(state);
 }
-
+export const updateTextNews = (newsText) =>{
+    state.news.newsTextData = newsText;
+    rerenderEntireTree(state);
+}
+export const subscribe = (observer) =>{
+    rerenderEntireTree = observer;
+}
 export default state;

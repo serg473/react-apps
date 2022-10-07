@@ -12,8 +12,8 @@ const Content = (props) =>{
         <main className={s.content}>
             <Routes>
                 <Route path='/dialogs/*' element={<Dialogs updateText={updateText} newPostText = {props.newPostText.newPostText} addPost = {props.addPost}  state = {props.state.profile}/>}/>
-                <Route path='/music' element={<Music/>}/>
-                <Route path='/news/*' element={<News addNews = {props.addNews} state = {props.state.news} />}/>
+                <Route path='/music'  element={<Music/>}/>
+                <Route path='/news/*' element={<News updateNewsText = {props.updateNewsText} addNews = {props.addNews} state = {props.state.news} />}/>
                 <Route path='/settings' element={<Settings/>}/>
             </Routes>
         </main>
