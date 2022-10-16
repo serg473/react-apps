@@ -3,7 +3,7 @@
 }
 .item a{
     display: flex;
-    align-items: start;
+    align-items: center;
     text-decoration: none;
 }
 .item a div{

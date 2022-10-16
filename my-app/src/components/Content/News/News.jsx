@@ -6,11 +6,13 @@ const News = (props) =>{
     let newsDate = props.state.newsData.map(news => <NewsItem id = {news.id} src = {news.src} title = {news.title} date = {news.datePublish} tag = {news.tag} />);
     let addNews = React.createRef();
     let getAddNews = () =>{
-        props.addNews();
+        let action = {type: 'ADD-NEWS'}
+        props.dispatch(action);
     }
     let postNewsText = () =>{
         let myText = addNews.current.value;
-        props.updateNewsText(myText);
+        let action = {type: 'UPDATE-NEWS-TEXT', myText: myText}
+        props.dispatch(action);
     }
     return(
         <div className={s.news}>
