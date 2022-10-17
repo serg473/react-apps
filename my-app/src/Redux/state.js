@@ -1,6 +1,7 @@
-
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT';
 let store = {
-    _state :{
+    _state: {
         profile: {
             profileData: [
                 {
@@ -46,7 +47,7 @@ let store = {
                     message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
                 },
             ],
-            newPostText : 'Мой текст'
+            newPostText: 'Мой текст'
         },
         news: {
             newsData: [
@@ -93,17 +94,17 @@ let store = {
             ]
         }
     },
-    _callBackFunction () {
+    _callBackFunction() {
         console.log('State was changed!');
     },
-    getState(){
+    getState() {
         return this._state;
     },
-    subscribe(observer){
+    subscribe(observer) {
         this._callBackFunction = observer;
     },
-    dispatch(action){
-        if(action.type === 'ADD-POST'){
+    dispatch(action) {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 8,
                 name: 'Semen',
@@ -113,10 +114,10 @@ let store = {
             this._state.profile.profileData.push(newPost);
             this._state.profile.newPostText = "";
             this._callBackFunction(this._state);//вызов функции, в качестве параметра в которой, используется актуальный state
-        }else if(action.type === 'UPDATE-POST-TEXT'){
+        } else if (action.type === UPDATE_POST_TEXT) {
             this._state.profile.newPostText = action.newtext;
             this._callBackFunction(this._state);
-        }else if(action.type === 'ADD-NEWS'){
+        } else if (action.type === 'ADD-NEWS') {
             let newsPost = {
                 id: 5,
                 src: 'https://i.ytimg.com/vi/ie53jQ2uobc/maxresdefault.jpg',
@@ -127,11 +128,15 @@ let store = {
             this._state.news.newsData.push(newsPost);
             this._state.news.newsTextData = "";
             this._callBackFunction();
-        }else if(action.type === 'UPDATE-NEWS-TEXT'){
+        } else if (action.type === 'UPDATE-NEWS-TEXT') {
             this._state.news.newsTextData = action.myText;
             this._callBackFunction(this._state);
         }
-    }
+    },
 }
+export const addPostActionCreater = () =>  ({type: ADD_POST})
+
+export const updatePostActionCreater = (value) => ({type: UPDATE_POST_TEXT, newtext: value})
+
 window.store = store;
 export default store;
