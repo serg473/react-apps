@@ -1,5 +1,9 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT';
+import profileReducer from "./profile-reducer";
+import newsReducer from "./news-reducer";
+import friendsReducer from "./friends-reducer";
+
+
+
 let store = {
     _state: {
         profile: {
@@ -47,7 +51,7 @@ let store = {
                     message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
                 },
             ],
-            newPostText: 'Мой текст'
+            newPostText: ''
         },
         news: {
             newsData: [
@@ -104,39 +108,15 @@ let store = {
         this._callBackFunction = observer;
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 8,
-                name: 'Semen',
-                src: 'https://www.w3schools.com/howto/img_avatar.png',
-                message: this._state.profile.newPostText
-            }
-            this._state.profile.profileData.push(newPost);
-            this._state.profile.newPostText = "";
-            this._callBackFunction(this._state);//вызов функции, в качестве параметра в которой, используется актуальный state
-        } else if (action.type === UPDATE_POST_TEXT) {
-            this._state.profile.newPostText = action.newtext;
-            this._callBackFunction(this._state);
-        } else if (action.type === 'ADD-NEWS') {
-            let newsPost = {
-                id: 5,
-                src: 'https://i.ytimg.com/vi/ie53jQ2uobc/maxresdefault.jpg',
-                title: this._state.news.newsTextData,
-                datePublish: '13.03.2022',
-                tag: 'Общество'
-            }
-            this._state.news.newsData.push(newsPost);
-            this._state.news.newsTextData = "";
-            this._callBackFunction();
-        } else if (action.type === 'UPDATE-NEWS-TEXT') {
-            this._state.news.newsTextData = action.myText;
-            this._callBackFunction(this._state);
-        }
+        this._state.profile = profileReducer(this._state.profile, action);
+        this._state.news = newsReducer(this._state.news, action);
+        this._state.friends = friendsReducer(this._state.friends, action);
+
+        this._callBackFunction(this._state)
     },
 }
-export const addPostActionCreater = () =>  ({type: ADD_POST})
 
-export const updatePostActionCreater = (value) => ({type: UPDATE_POST_TEXT, newtext: value})
+
 
 window.store = store;
 export default store;

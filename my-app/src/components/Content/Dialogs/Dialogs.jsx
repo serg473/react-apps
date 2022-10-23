@@ -2,7 +2,7 @@ import React from "react";
 import s from './Dialogs.module.css'
 import App from "./DialogsItem/DialogsItem";
 import DialogsItem from "./DialogsItem/DialogsItem";
-import {addPostActionCreater, updatePostActionCreater} from "../../../Redux/state";
+import {addPostActionCreater, updatePostActionCreater} from "../../../Redux/profile-reducer";
 
 
 const Dialogs = (props) => {
