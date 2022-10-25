@@ -1,6 +1,56 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT';
-const profileReducer = (state,action) =>{
+
+
+let initialState = {
+    profileData: [
+        {
+            id: 1,
+            name: 'Sergey',
+            src: 'https://www.w3schools.com/howto/img_avatar.png',
+            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
+        },
+        {
+            id: 2,
+            name: 'Elena',
+            src: 'https://www.w3schools.com/howto/img_avatar2.png',
+            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
+        },
+        {
+            id: 3,
+            name: 'Nastya',
+            src: 'https://www.w3schools.com/howto/img_avatar2.png',
+            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
+        },
+        {
+            id: 4,
+            name: 'Masha',
+            src: 'https://www.w3schools.com/howto/img_avatar2.png',
+            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
+        },
+        {
+            id: 5,
+            name: 'Dima',
+            src: 'https://www.w3schools.com/howto/img_avatar.png',
+            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
+        },
+        {
+            id: 6,
+            name: 'Petr',
+            src: 'https://www.w3schools.com/howto/img_avatar.png',
+            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
+        },
+        {
+            id: 7,
+            name: 'Igor',
+            src: 'https://www.w3schools.com/howto/img_avatar.png',
+            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, suscipit!"
+        },
+    ],
+    newPostText: ''
+};
+const profileReducer = (state = initialState,action) =>{
+    debugger;
     switch (action.type) {
         case ADD_POST:
             let newPost = {
