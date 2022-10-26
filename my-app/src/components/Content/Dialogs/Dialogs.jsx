@@ -2,22 +2,19 @@ import React from "react";
 import s from './Dialogs.module.css'
 import App from "./DialogsItem/DialogsItem";
 import DialogsItem from "./DialogsItem/DialogsItem";
-import {addPostActionCreater, updatePostActionCreater} from "../../../Redux/profile-reducer";
 
 
 const Dialogs = (props) => {
+    debugger;
     let newPostElement = React.createRef();
     let addPost = () => {
-        //props.addPost();
-        props.dispatch(addPostActionCreater());
+        props.addPost();
     }
     let onUpdate = () => {
         let value = newPostElement.current.value;
-        //props.updateText(value);
-        let action = updatePostActionCreater(value);
-        props.dispatch(action);
+        props.updateText(value);
     }
-    let dataItem = props.state.profileData.map(el => <DialogsItem id = {el.id} name = {el.name} src = {el.src} message={el.message}/>);
+    let dataItem = props.profile.map(el => <DialogsItem id = {el.id} name = {el.name} src = {el.src} message={el.message}/>);
     return (
         <div className={s.dialogs}>
             {dataItem}

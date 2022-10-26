@@ -10,8 +10,8 @@ const App = (props) => {
         <div className={s.wrapper}>
             <Header/>
             <div className={s.wrapper_block}>
-                <Friends stateFriends={props.state}/>
-                <Content dispatch = {props.dispatch} newPostText = {props.newPostText} state = {props.state}/>
+                <Friends stateFriends={props.store.getState().friends.friendsData}/>
+                <Content store = {props.store}/>
             </div>
         </div>
     )
