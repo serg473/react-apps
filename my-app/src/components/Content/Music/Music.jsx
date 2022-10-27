@@ -1,19 +1,25 @@
-import React from "react";
+import React, {createRef} from "react";
 import s from './Music.module.css'
-
+import MusicItem from "./MusicItem/MusicItem";
 const Music = (props) => {
-    let newsPostMusic = React.createRef();
-    let postMusic = () => {
-        let txt = newsPostMusic.current.value;
-        alert(txt);
+    let linkElement = React.createRef();
+    const addMusicPost = () =>{
+        props.addPostMusic()
     }
+
+    const updateTextPostMusic = () =>{
+        let value = linkElement.current.value;
+        props.updateTextMusic(value)
+    }
+
+    let musicItem = props.musics.map(el => <MusicItem id = {el.id} name = {el.name} date = {el.date}/>)
     return (
         <div>
-            Музыка
+            {musicItem}
             <div>
-                <button onClick={postMusic}>Добавить музыку</button>
+                <button onClick={addMusicPost}>Добавить музыку</button>
                 <div>
-                    <textarea name="" ref={newsPostMusic} cols="30" rows="10"></textarea>
+                    <textarea onChange={updateTextPostMusic} name="" ref={linkElement} value = {props.musicValueText}  cols="30" rows="10" />
                 </div>
             </div>
         </div>

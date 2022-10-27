@@ -2,11 +2,14 @@ import {combineReducers, createStore} from "redux";
 import profileReducer from "./profile-reducer";
 import newsReducer from "./news-reducer";
 import friendsReducer from "./friends-reducer";
+import musicReducer from "./music-reducer";
 
-let reducers = combineReducers({
+let reducers = combineReducers(
+    {
     profile: profileReducer,
     news: newsReducer,
-    friends: friendsReducer
+    friends: friendsReducer,
+    musics: musicReducer
 })
 
 let store = createStore(reducers);

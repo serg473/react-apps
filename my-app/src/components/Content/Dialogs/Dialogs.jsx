@@ -7,7 +7,7 @@ import DialogsItem from "./DialogsItem/DialogsItem";
 const Dialogs = (props) => {
     debugger;
     let newPostElement = React.createRef();
-    let addPost = () => {
+    let onAddPost = () => {
         props.addPost();
     }
     let onUpdate = () => {
@@ -19,7 +19,7 @@ const Dialogs = (props) => {
         <div className={s.dialogs}>
             {dataItem}
             <div>
-                <button onClick={addPost}>Add Post</button>
+                <button onClick={onAddPost}>Add Post</button>
                 <div>
                     <textarea onChange={onUpdate} ref={newPostElement} value={props.newPostText}/>
                 </div>
