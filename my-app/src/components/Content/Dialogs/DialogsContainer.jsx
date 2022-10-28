@@ -1,18 +1,26 @@
 import React from "react";
-import s from './Dialogs.module.css'
 import {addPostActionCreater, updatePostActionCreater} from "../../../Redux/profile-reducer";
 import Dialogs from "./Dialogs";
+import StoreContext from "../../../StoreContext";
 
-const DialogsContainer = (props) => {
-    debugger;
-    let state = props.store.getState();
-    let addPost = () => {
-        props.store.dispatch(addPostActionCreater());
-    }
-    let onUpdate = (value) => {
-        let action = updatePostActionCreater(value);
-        props.store.dispatch(action);
-    }
-    return (<Dialogs updateText = {onUpdate} addPost = {addPost} profile = {state.profile.profileData} newPostText = {state.profile.newPostText} />)
+const DialogsContainer = () => {
+
+    return <StoreContext.Consumer>
+            {
+                (store) => {
+                    let state = store.getState();
+                    let addPost = () => {
+                        store.dispatch(addPostActionCreater());
+                    }
+                    let onUpdate = (value) => {
+                        let action = updatePostActionCreater(value);
+                        store.dispatch(action);
+                    }
+                    return <Dialogs updateText={onUpdate} addPost={addPost} profile={state.profile.profileData}
+                                    newPostText={state.profile.newPostText}/>
+                }
+            }
+        </StoreContext.Consumer>
+
 }
 export default DialogsContainer;

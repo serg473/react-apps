@@ -1,19 +1,26 @@
 import React from "react";
-import s from './News.module.css'
-
 import {getAddNewsActionCreater, postNewsTextActionCreater} from "../../../Redux/news-reducer";
 import News from "./News";
+import StoreContext from "../../../StoreContext";
 
-const NewsContainer = (props) =>{
-    let state = props.store.getState();
-    let getAddNews = () =>{
-        let action  = getAddNewsActionCreater();
-        props.store.dispatch(action);
-    }
-    let postNewsText = (myText) =>{
-        let action = postNewsTextActionCreater(myText);
-        props.store.dispatch(action);
-    }
-    return(<News updateNewsText = {postNewsText} addNews = {getAddNews} news = {state.news.newsData} newsTextData = {state.news.newsTextData} />)
+const NewsContainer = () => {
+
+    return <StoreContext.Consumer>
+        {
+            (store) => {
+                let state = store.getState();
+                let getAddNews = () => {
+                    let action = getAddNewsActionCreater();
+                    store.dispatch(action);
+                }
+                let postNewsText = (myText) => {
+                    let action = postNewsTextActionCreater(myText);
+                    store.dispatch(action);
+                }
+                return <News updateNewsText={postNewsText} addNews={getAddNews} news={state.news.newsData}
+                             newsTextData={state.news.newsTextData}/>
+            }
+        }
+    </StoreContext.Consumer>
 }
 export default NewsContainer;

@@ -16,3 +16,6 @@
     text-decoration: none;
     color:#ffffff;
 }
+.list > li > a.active{
+    color:gold;
+}
