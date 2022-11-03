@@ -5,7 +5,7 @@ import React from "react";
 import FriendsContainer from "./components/Friends/FriendsContainer";
 
 
-const App = (props) => {
+const App = () => {
     return (
         <div className={s.wrapper}>
             <Header/>

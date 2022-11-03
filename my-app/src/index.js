@@ -4,10 +4,11 @@ import App from './App';
 import store from "./Redux/redux-store";
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-import {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export let rerenderEntireTree = (state) => {
+export let rerenderEntireTree = () => {
     debugger;
     root.render(
         <React.StrictMode>
@@ -22,10 +23,9 @@ export let rerenderEntireTree = (state) => {
 reportWebVitals();
 
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree();
 store.subscribe(() => {
-    let state = store.getState();
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 });
 
 reportWebVitals();
