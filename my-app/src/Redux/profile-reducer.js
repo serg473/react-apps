@@ -1,4 +1,4 @@
-const ADD_POST = 'ADD-POST';
+const ADD_POST = 'ADD_POST';
 const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT';
 
 
@@ -49,27 +49,35 @@ let initialState = {
     ],
     newPostText: ''
 };
-const profileReducer = (state = initialState,action) =>{
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
+            debugger
             let newPost = {
                 id: 8,
                 name: 'Semen',
                 src: 'https://www.w3schools.com/howto/img_avatar.png',
                 message: state.newPostText
             }
-            state.profileData.push(newPost);
-            state.newPostText = "";
-            return state;
+            let stateCopy = {...state};
+            stateCopy.profileData = [...state.profileData];
+            stateCopy.profileData.push(newPost);
+            stateCopy.newPostText = "";
+            return stateCopy;
             break;
-        case UPDATE_POST_TEXT:
-            state.newPostText = action.newtext;
-            return state;
+        }
+
+        case UPDATE_POST_TEXT: {
+            let stateCopy = {...state}
+            stateCopy.newPostText = action.newtext;
+            return stateCopy;
             break;
+        }
+
         default:
             return state;
     }
 }
-export const addPostActionCreater = () =>  ({type: ADD_POST})
+export const addPostActionCreater = () => ({type: ADD_POST})
 export const updatePostActionCreater = (value) => ({type: UPDATE_POST_TEXT, newtext: value})
 export default profileReducer;

@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 let mapStateToProps = (state) => {
     return{
         newsTextData: state.news.newsTextData,
-        news: state.news.newsDat
+        news: state.news.newsData
     }
 
 }
