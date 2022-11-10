@@ -49,10 +49,10 @@ let initialState = {
     ],
     newPostText: ''
 };
+
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
-            debugger
             let newPost = {
                 id: 8,
                 name: 'Semen',

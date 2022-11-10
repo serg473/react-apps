@@ -14,7 +14,7 @@ const Dialogs = (props) => {
         let value = newPostElement.current.value;
         props.updateText(value);
     }
-    let dataItem = props.profile.map(el => <DialogsItem id = {el.id} name = {el.name} src = {el.src} message={el.message}/>);
+    let dataItem = props.profile.map(el => <DialogsItem key = {el.id} id = {el.id} name = {el.name} src = {el.src} message={el.message}/>);
     return (
         <div className={s.dialogs}>
             {dataItem}

@@ -12,7 +12,7 @@ const Music = (props) => {
         props.updateTextMusic(value)
     }
 
-    let musicItem = props.musics.map(el => <MusicItem id = {el.id} name = {el.name} date = {el.date}/>)
+    let musicItem = props.musics.map(el => <MusicItem key = {el.id} id = {el.id} name = {el.name} date = {el.date}/>)
     return (
         <div>
             {musicItem}
