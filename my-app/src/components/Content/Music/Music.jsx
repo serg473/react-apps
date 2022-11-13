@@ -1,28 +1,28 @@
-import React, {createRef} from "react";
 import s from './Music.module.css'
-import MusicItem from "./MusicItem/MusicItem";
+
 const Music = (props) => {
-    let linkElement = React.createRef();
-    const addMusicPost = () =>{
-        props.addPostMusic()
-    }
+    debugger;
+    return <div className={s.album_music}>
 
-    const updateTextPostMusic = () =>{
-        let value = linkElement.current.value;
-        props.updateTextMusic(value)
-    }
+        {
+            props.musics.map(el => <div key = {el.id}>
 
-    let musicItem = props.musics.map(el => <MusicItem key = {el.id} id = {el.id} name = {el.name} date = {el.date}/>)
-    return (
-        <div>
-            {musicItem}
-            <div>
-                <button onClick={addMusicPost}>Добавить музыку</button>
-                <div>
-                    <textarea onChange={updateTextPostMusic} name="" ref={linkElement} value = {props.musicValueText}  cols="30" rows="10" />
+                <div className={s.img_container}>
+                    <img src={el.preview} alt=""/>
                 </div>
-            </div>
-        </div>
-    )
+
+                <div>
+                    {el.name}
+                </div>
+                <div>
+                    {el.date}
+                </div>
+
+                    {el.followed ? <button onClick={() => {props.follow(el.id)}}>Отписаться</button> : <button onClick={() => {props.unfollow(el.id)}}>Подписаться</button>}
+
+
+            </div>)
+        }
+    </div>
 }
 export default Music;
