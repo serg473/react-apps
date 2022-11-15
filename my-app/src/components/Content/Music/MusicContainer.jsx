@@ -1,41 +1,26 @@
 import React from "react";
 import s from './Music.module.css'
 import Music from "./Music";
-import {
-    addMusicActionCreater,
-    followActionCreater,
-    setActionCreaterMusic,
-    unfollowActionCreater,
-    updateTextMusicActionCreater
-} from "../../../Redux/music-reducer";
 import {connect} from "react-redux";
+import {followAC, setUsersAC, unfollowAC} from "../../../Redux/music-reducer";
 
 
 let mapStateToProps = (state) =>{
     return{
-        musics: state.musics.musicData,
-        musicValueText: state.musics.musicText
+        users: state.usersPage.users,
     }
 }
 let mapDispatchToProps = (dispatch) =>{
     return{
-
-        follow: (musicId) =>{
-            dispatch(followActionCreater(musicId))
+        following: (userId) =>{
+            dispatch(followAC(userId))
         },
-        unfollow: (musicId) =>{
-            dispatch(unfollowActionCreater(musicId))
+        unfollowing: (userId) =>{
+            dispatch(unfollowAC(userId))
         },
-        setActionMusic: (music) =>{
-            dispatch(setActionCreaterMusic(music))
-        },
-        updateTextMusic: (value) =>{
-            let action = updateTextMusicActionCreater(value);
-            dispatch(action);
-        },
-        addPostMusic: () =>{
-            dispatch(addMusicActionCreater());
-        },
+        setUsers: (users) =>{
+            dispatch(setUsersAC(users))
+        }
     }
 }
 

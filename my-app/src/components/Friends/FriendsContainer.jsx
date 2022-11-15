@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 
 
 let mapStateToProps = (state) =>{
-    debugger;
     return{
         friends: state.friends.friendsData
     }
