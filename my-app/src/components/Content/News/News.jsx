@@ -3,7 +3,6 @@ import s from './News.module.css'
 import NewsItem from "./NewsItem/NewsItem";
 
 const News = (props) =>{
-    debugger
     let newsDate = props.news.map(news => <NewsItem id = {news.id} src = {news.src} title = {news.title} date = {news.datePublish} tag = {news.tag} />);
     let addNews = React.createRef();
     let getAddNews = () =>{

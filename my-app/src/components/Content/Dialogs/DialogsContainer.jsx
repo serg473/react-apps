@@ -1,5 +1,10 @@
 import React from "react";
-import {addPostActionCreater, updatePostActionCreater} from "../../../Redux/profile-reducer";
+import {
+    addFriendsAC,
+    addPostActionCreater,
+    deleteFriendsAC,
+    updatePostActionCreater
+} from "../../../Redux/profile-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 
@@ -18,6 +23,12 @@ let mapDispatchToProps = (dispatch) => {
         updateText: (value) => {
             let action = updatePostActionCreater(value);
             dispatch(action);
+        },
+        addFriendsAC: (profile_id) =>{
+            dispatch(addFriendsAC(profile_id))
+        },
+        deleteFriendsAC: (profile_id) =>{
+            dispatch(deleteFriendsAC(profile_id))
         }
     }
 }

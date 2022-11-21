@@ -1,11 +1,9 @@
 import React from "react";
 import s from './Dialogs.module.css'
-import App from "./DialogsItem/DialogsItem";
 import DialogsItem from "./DialogsItem/DialogsItem";
 
 
 const Dialogs = (props) => {
-    debugger;
     let newPostElement = React.createRef();
     let onAddPost = () => {
         props.addPost();
@@ -14,7 +12,7 @@ const Dialogs = (props) => {
         let value = newPostElement.current.value;
         props.updateText(value);
     }
-    let dataItem = props.profile.map(el => <DialogsItem key = {el.id} id = {el.id} name = {el.name} src = {el.src} message={el.message}/>);
+    let dataItem = props.profile.map(el => <DialogsItem addFriendsAC = {props.addFriendsAC} deleteFriendsAC = {props.deleteFriendsAC} friends = {el.friends} key = {el.id} id = {el.id} name = {el.name} src = {el.src} message={el.message}/>);
     return (
         <div className={s.dialogs}>
             {dataItem}

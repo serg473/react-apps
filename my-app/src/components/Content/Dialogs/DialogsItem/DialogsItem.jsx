@@ -3,6 +3,7 @@ import s from './DialogsItem.module.css'
 import {NavLink} from "react-router-dom";
 
 const DialogsItem = (props) => {
+    debugger;
     let path = '/dialogs/item' + props.id;
     return (
         <div>
@@ -14,6 +15,7 @@ const DialogsItem = (props) => {
                     <NavLink to = {path}>{props.name}</NavLink>
                     <p>{props.message}</p>
                 </div>
+                {props.friends ? <div onClick={() => {props.deleteFriendsAC(props.id)}} className={s.btn}>Удалить из друзей</div> : <div onClick={() => {props.addFriendsAC(props.id)}} className={s.btn}>Добавить в друзья</div>}
             </div>
         </div>
     )

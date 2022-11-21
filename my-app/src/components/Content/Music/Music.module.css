@@ -24,3 +24,25 @@
     font-weight: 500;
     font-size: 18px;
 }
+.like{
+    display: inline-block;
+    margin-top: 20px;
+}
+.like img{
+    width: 25px;
+    height: 25px;
+    vertical-align: top;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.item{
+    margin-bottom: 60px;
+}
+button{
+    background-color: #447bba;
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+}
