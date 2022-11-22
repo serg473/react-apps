@@ -2,13 +2,14 @@ import React from "react";
 import {
     addFriendsAC,
     addPostActionCreater,
-    deleteFriendsAC,
+    deleteFriendsAC, setFriendsAC,
     updatePostActionCreater
 } from "../../../Redux/profile-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
+    debugger
     return {
         newPostText: state.profile.newPostText,
         profile: state.profile.profileData
@@ -29,6 +30,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         deleteFriendsAC: (profile_id) =>{
             dispatch(deleteFriendsAC(profile_id))
+        },
+        setFriendsAC: (friends) =>{
+            dispatch(setFriendsAC(friends))
         }
     }
 }
