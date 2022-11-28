@@ -9,7 +9,6 @@ import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
-    debugger
     return {
         newPostText: state.profile.newPostText,
         profile: state.profile.profileData

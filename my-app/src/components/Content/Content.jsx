@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import DialogsContainer from "./Dialogs/DialogsContainer";
 import NewsContainer from "./News/NewsContainer";
 import MusicContainer from "./Music/MusicContainer";
+import MyProfileContainer from "./MyProfile/MyProfileContainer";
 
 const Content = () =>{
     return(
@@ -13,6 +14,7 @@ const Content = () =>{
                 <Route path='/dialogs/*' element={<DialogsContainer />}/>
                 <Route path='/music/*'  element={<MusicContainer />}/>
                 <Route path='/news/*' element={<NewsContainer />}/>
+                <Route path='/myprofile/*' element={<MyProfileContainer />}/>
                 <Route path='/settings' element={<Settings />}/>
             </Routes>
         </main>
