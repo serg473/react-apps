@@ -5,7 +5,6 @@ import {addPostAC, updatePostAC} from "../../../Redux/myprofile-reducer";
 
 
 let mapStateToProps = (state) =>{
-    debugger
     return{
         profile: state.myprofile.dataProfile,
         dataPost:state.myprofile.dataPost

@@ -2,15 +2,19 @@ import React from "react";
 import s from './Music.module.css'
 import Music from "./Music";
 import {connect} from "react-redux";
-import {followAC, setUsersAC, unfollowAC} from "../../../Redux/music-reducer";
+import {followAC, setCurrentPageAC, setTotalMusicCountAC, setUsersAC, unfollowAC} from "../../../Redux/music-reducer";
 
 
 let mapStateToProps = (state) =>{
     return{
         users: state.usersPage.users,
+        pagesize: state.usersPage.pagesize,
+        totalMusicCount: state.usersPage.totalMusicCount,
+        currentPage: state.usersPage.currentPage
     }
 }
 let mapDispatchToProps = (dispatch) =>{
+
     return{
         following: (userId) =>{
             dispatch(followAC(userId))
@@ -20,6 +24,12 @@ let mapDispatchToProps = (dispatch) =>{
         },
         setUsers: (users) =>{
             dispatch(setUsersAC(users))
+        },
+        setCurrentPage: (pageNumber) => {
+            dispatch(setCurrentPageAC(pageNumber))
+        },
+        setMusicTotalCount: (totalCount) => {
+            dispatch(setTotalMusicCountAC(totalCount))
         }
     }
 }

@@ -8,15 +8,42 @@ class Music extends React.Component{
 
     componentDidMount() {
         if (this.props.users.length===0){
-            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pagesize}`)
+                .then(response => {
                 this.props.setUsers(response.data.items)
+                this.props.setMusicTotalCount(response.data.totalCount)
             })
         }
     }
-
+    onchangedPaged = (pageNumber) =>{
+        this.props.setCurrentPage(pageNumber)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pagesize}`)
+            .then(response => {
+                this.props.setUsers(response.data.items)
+                this.props.setMusicTotalCount(response.data.totalCount)
+            })
+    }
     render() {
-        return <div className={s.album_music}>
+        let pagesCount = Math.ceil(this.props.totalMusicCount / this.props.pagesize);
+        let pages = [];
+        for(let i=1; i <= pagesCount; i++){
+            pages.push(i);
+        }
 
+        let curP = this.props.currentPage;
+        let curPF = ((curP - 5) < 0) ?  0  : curP - 5 ;
+        let curPL = curP + 5;
+        let slicedPages = pages.slice( curPF, curPL);
+
+        return <div className={s.album_music}>
+            <div className={s.pagination}>
+                {
+                    slicedPages.map(el => {
+                      return <span
+                          onClick={(e) => {this.onchangedPaged(el)} }
+                          className={this.props.currentPage === el && s.active}>{el}</span>
+                    })}
+            </div>
             {
                 this.props.users.map(u => <div className={s.item} key = {u.id}>
 
@@ -34,15 +61,6 @@ class Music extends React.Component{
                     <span className={s.like}>{u.like ? <img src="https://www.svgrepo.com/show/13689/like.svg" alt=""/> : <img src="https://www.svgrepo.com/show/13686/like.svg" alt=""/> } </span>
                 </div>)
             }
-
-
-            <div className={mp.pagination}>
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-            </div>
         </div>
     }
 }
