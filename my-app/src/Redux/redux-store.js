@@ -8,7 +8,7 @@ import myprofileReducer from "./myprofile-reducer";
 let reducers = combineReducers(
     {
         profile: profileReducer,
-        news: newsReducer,
+        newsPage: newsReducer,
         friends: friendsReducer,
         usersPage: usersReducer,
         myprofile: myprofileReducer

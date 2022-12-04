@@ -1,14 +1,23 @@
 import React from "react";
-import {getAddNewsActionCreater, postNewsTextActionCreater} from "../../../Redux/news-reducer";
+import {
+    getAddNewsActionCreater,
+    postNewsTextActionCreater, setCurrentPageAC,
+    setNewsAC,
+    setTotalCountNewsAC
+} from "../../../Redux/news-reducer";
 import News from "./News";
 import {connect} from "react-redux";
 
 
 let mapStateToProps = (state) => {
     return{
-        newsTextData: state.news.newsTextData,
-        news: state.news.newsData
+        newsTextData: state.newsPage.newsTextData,
+        newsData: state.newsPage.newsData,
+        currentPage: state.newsPage.currentPage,
+        pageSize: state.newsPage.pageSize,
+        totalCount: state.newsPage.totalCount,
     }
+
 
 }
 
@@ -21,6 +30,15 @@ let mapDispatchToProps = (dispatch) => {
         addNews:() => {
             let action = getAddNewsActionCreater();
             dispatch(action);
+        },
+        setNewsPost: (newsValue) => {
+            dispatch(setNewsAC(newsValue))
+        },
+        setTotalCountNews: (count) =>{
+            dispatch(setTotalCountNewsAC(count))
+        },
+        setCurrentPage: (pageNumber) =>{
+            dispatch(setCurrentPageAC(pageNumber))
         }
     }
 }
