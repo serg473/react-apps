@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './Music.module.css'
 import musicPhoto from './images/43.jpg'
+
 const Music = (props) => {
     let pagesCount = Math.ceil(props.totalMusicCount / props.pagesize);
     let pages = [];
